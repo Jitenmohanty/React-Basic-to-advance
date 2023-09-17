@@ -1,0 +1,79 @@
+{
+    "projects": [
+      {
+        "date": "25/05/2023",
+        "title": "TEXT UTILS",
+        "description": "This is the sample Prot...",
+        "url": "https://jitenmohanty.github.io/TextUtils/",
+        "imgSrc": "https://media.istockphoto.com/id/1164644807/photo/person-marking-error-with-red-marker.webp?b=1&s=612x612&w=0&k=20&c=iQXqIp1nQiNZkG_GijxgQfdt8l-uBz9r6HHGDTkADtY=",
+        "id":1
+      },
+      {
+        "date": "01/06/2023",
+        "title": "TECHY STAR",
+        "description": "This is tht",
+        "url": "https://tech-star-iota.vercel.app/",
+        "imgSrc": "https://cdn.pixabay.com/photo/2018/06/07/16/49/virtual-3460451_960_720.jpg",
+        "id":2
+      },
+  
+      {
+        "date": "17/07/2023",
+        "title": "VIDEO HUB",
+        "description": "This is the sample Project",
+        "url": "https://chakra-ui-reack-project-videohub-git-master-jitenmohanty.vercel.app/",
+        "imgSrc": "https://cdn.pixabay.com/photo/2016/11/21/12/51/mobile-phone-1845233__340.jpg",
+        "id":3
+      },
+      {
+        "date": "10/08/2023",
+        "title": "CRYPTO",
+        "description": "This is the sample Proje",   
+        "url": "https://crypto-app-by-react.vercel.app/",
+        "imgSrc": "https://cdn.pixabay.com/photo/2017/12/12/12/44/bitcoin-3014614_960_720.jpg",
+        "id":4
+      },
+      {
+        "date": "10/07/2023",
+        "title": "NEWS RUNNER",
+        "description": "This is the sample Prt",   
+        "url": "https://github.com/Jitenmohanty/NewsRunner",
+        "imgSrc": "https://media.istockphoto.com/id/1324677867/photo/beautiful-caucasian-female-is-using-laptop-for-chatting-with-fiends-in-social-network-at-home.webp?b=1&s=612x612&w=0&k=20&c=CimmPrqhmHyzn2n1oIAtXkeDiPyrDBPZatXcbSFWekA=",
+        "id":5
+      },
+  
+      {
+        "date": "25/08/2023",
+        "title": "REACT CART",
+        "description": "This is the sample Projectt",
+        "url": "https://cart-app-on-react-redux-toolkit.vercel.app/",
+        "imgSrc": "https://cdn.pixabay.com/photo/2019/12/14/08/36/shopping-4694470_960_720.jpg",
+        "id":6
+      },
+
+      {
+        "date": "06/08/2023",
+        "title": "CHAT APP",
+        "description": "This is a Major Project On MERN sta",
+        "url": "https://github.com/Jitenmohanty/ChatAppReactNodejsSocetAuth.git",
+        "imgSrc": "https://media.istockphoto.com/id/1217093906/photo/womens-hand-typing-on-mobile-smartphone-live-chat-chatting-on-application-communication.webp?b=1&s=612x612&w=0&k=20&c=musuQuCTEcuaKrsnd1xZdCp51ToAt1qv_od0HKkQD9Q=",
+        "id":7
+      },
+      {
+        "date": "04/09/2023",
+        "title": "iNoteBook",
+        "description": "This is the sample Project",
+        "url": "https://6501446b40687c35e19be9c3--earnest-naiad-dc77cc.netlify.app/",
+        "imgSrc": "https://images.freeimages.com/images/large-previews/a39/notes-on-wood-4-1315469.jpg?fmt=webp&w=350",
+        "id":8
+      },
+      {
+        "date": "07/09/2023",
+        "title": "PORTFOLIO",
+        "description": "This is th",
+        "url": "/",
+        "imgSrc": "https://media.istockphoto.com/id/1413884806/photo/financial-advisor-or-lawyer-with-couple-explaining-options.webp?b=1&s=612x612&w=0&k=20&c=diY-qOJ0d947A78yGYXP1An0Ct3S995Erd43yIRiNv4=",
+        "id":9
+      }
+    ]
+  }
