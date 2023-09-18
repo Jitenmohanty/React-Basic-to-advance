@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.lightMode{
+  background-color: white;
+  color: black;
+}
+.darkMode{
+  background-color: rgb(31, 30, 30);
+  color: rgb(233, 221, 221);
+}

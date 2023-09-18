@@ -1,13 +1,16 @@
-import { useReducer, useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import "./App.css";
 import Video from "./Components/Video";
 import data from "./assets/data.json";
 
 import AddVideo from "./Components/AddVideo";
+import ThemeContext from "./Context/ThemeContext";
 
 function App() {
+  const Theme = useContext(ThemeContext)
   const [editableVideo, setEditableVideo] = useState(null);
-  
+  const [colorMode, setColorMode] = useState(Theme);
+
   function videoReducer(videos, action) {
     switch (action.type) {
       case "ADD":
@@ -29,7 +32,6 @@ function App() {
         //Not use inside...
         setEditableVideo(null);
         return uVideo;
-
       default:
         return videos;
     }
@@ -43,8 +45,17 @@ function App() {
 
   return (
     <>
-      <AddVideo dispatch={dispatch} editableVideo={editableVideo} />
-      <Video dispatch={dispatch} videos={videos} editVideo={editVideo} />
+      <div className={`App ${colorMode}`}>
+        <button
+          onClick={() =>
+            setColorMode(colorMode === "lightMode" ? "darkMode" : "lightMode")
+          }
+        >
+          Mode
+        </button>
+        <AddVideo dispatch={dispatch} editableVideo={editableVideo} />
+        <Video dispatch={dispatch} videos={videos} editVideo={editVideo} />
+      </div>
     </>
   );
 }
