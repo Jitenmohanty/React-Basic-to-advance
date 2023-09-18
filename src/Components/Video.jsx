@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
-import VideoDispatchContext from "../Context/VideoDispatchContext";
-import VideoContext from "../Context/VideoContext";
+import React, { useContext } from "react";
+import useDispatchCustomHook from "../hooks/DispatchCustomHooks";
+import useVideosCustomHook from "../hooks/VideosCustomHook";
 
 const Video = ({ editVideo }) => {
-  const dispatch = useContext(VideoDispatchContext);
-  const videos = useContext(VideoContext);
+  const dispatch = useDispatchCustomHook();
+
+  const videos = useVideosCustomHook();
   return (
     <>
       <div

@@ -1,17 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
-import VideoDispatchContext from "../Context/VideoDispatchContext";
+import React, { useEffect, useState } from "react";
+import useDispatchCustomHook from "../hooks/DispatchCustomHooks";
 const initialState = {
   title: "",
   description: "",
 };
+let disabled= true;
 const AddVideo = ({ editableVideo }) => {
   const [video, setVideo] = useState(initialState);
-  const dispatch = useContext(VideoDispatchContext);
+  const dispatch = useDispatchCustomHook();
   const handleChange = (e) => {
     setVideo({
       ...video,
       [e.target.name]: e.target.value,
     });
+    disabled=false;
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +24,7 @@ const AddVideo = ({ editableVideo }) => {
       dispatch({ type: "ADD", payload: video });
       setVideo(initialState);
     }
+    disabled=true;
   };
   useEffect(() => {
     if (editableVideo) {
@@ -31,7 +34,7 @@ const AddVideo = ({ editableVideo }) => {
   return (
     <div style={{ height: "10vh", width: "100%" }}>
       <form onSubmit={handleSubmit}>
-        <label style={{fontWeight:'bolder'}}>
+        <label style={{ fontWeight: "bolder" }}>
           Title
           <input
             type="text"
@@ -48,7 +51,7 @@ const AddVideo = ({ editableVideo }) => {
             }}
           />
         </label>
-        <label style={{fontWeight:'bolder'}}>
+        <label style={{ fontWeight: "bolder" }}>
           Description
           <input
             type="text"
@@ -65,7 +68,7 @@ const AddVideo = ({ editableVideo }) => {
             }}
           />
         </label>
-        <button type="submit">{editableVideo ? "Update" : "Add"} Video</button>
+        <button disabled={disabled} type="submit">{editableVideo ? "Update" : "Add"} Video</button>
       </form>
     </div>
   );
