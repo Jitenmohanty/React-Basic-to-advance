@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import VideoDispatchContext from "../Context/VideoDispatchContext";
 const initialState = {
   title: "",
   description: "",
 };
-const AddVideo = ({ dispatch, editableVideo }) => {
+const AddVideo = ({ editableVideo }) => {
   const [video, setVideo] = useState(initialState);
+  const dispatch = useContext(VideoDispatchContext);
   const handleChange = (e) => {
     setVideo({
       ...video,
@@ -29,7 +31,7 @@ const AddVideo = ({ dispatch, editableVideo }) => {
   return (
     <div style={{ height: "10vh", width: "100%" }}>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label style={{fontWeight:'bolder'}}>
           Title
           <input
             type="text"
@@ -46,7 +48,7 @@ const AddVideo = ({ dispatch, editableVideo }) => {
             }}
           />
         </label>
-        <label>
+        <label style={{fontWeight:'bolder'}}>
           Description
           <input
             type="text"

@@ -1,15 +1,17 @@
-import { useContext, useReducer, useState } from "react";
+import { useReducer, useState } from "react";
 import "./App.css";
 import Video from "./Components/Video";
 import data from "./assets/data.json";
 
 import AddVideo from "./Components/AddVideo";
 import ThemeContext from "./Context/ThemeContext";
+import VideoDispatchContext from "./Context/VideoDispatchContext";
+import VideoContext from "./Context/VideoContext";
 
 function App() {
-  const Theme = useContext(ThemeContext)
+  // const Theme = useContext(ThemeContext);
   const [editableVideo, setEditableVideo] = useState(null);
-  const [colorMode, setColorMode] = useState(Theme);
+  const [colorMode, setColorMode] = useState("darkMode");
 
   function videoReducer(videos, action) {
     switch (action.type) {
@@ -44,19 +46,25 @@ function App() {
   };
 
   return (
-    <>
-      <div className={`App ${colorMode}`}>
-        <button
-          onClick={() =>
-            setColorMode(colorMode === "lightMode" ? "darkMode" : "lightMode")
-          }
-        >
-          Mode
-        </button>
-        <AddVideo dispatch={dispatch} editableVideo={editableVideo} />
-        <Video dispatch={dispatch} videos={videos} editVideo={editVideo} />
-      </div>
-    </>
+    <ThemeContext.Provider value={ThemeContext}>
+      <VideoDispatchContext.Provider value={dispatch}>
+        <VideoContext.Provider value={videos}>
+          <div className={`App ${colorMode}`}>
+            <button
+              onClick={() =>
+                setColorMode(
+                  colorMode === "lightMode" ? "darkMode" : "lightMode"
+                )
+              }
+            >
+            {colorMode === 'lightMode'?'Dark':'Light'} Mode
+            </button>
+            <AddVideo editableVideo={editableVideo} />
+            <Video editVideo={editVideo} />
+          </div>
+        </VideoContext.Provider>
+      </VideoDispatchContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 

@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import VideoDispatchContext from "../Context/VideoDispatchContext";
+import VideoContext from "../Context/VideoContext";
 
-const Video = ({ videos, dispatch, editVideo }) => {
+const Video = ({ editVideo }) => {
+  const dispatch = useContext(VideoDispatchContext);
+  const videos = useContext(VideoContext);
   return (
     <>
       <div
@@ -18,7 +22,7 @@ const Video = ({ videos, dispatch, editVideo }) => {
             style={{ position: "relative", marginLeft: "5px", width: "25vw" }}
           >
             <button
-              onClick={() =>dispatch({ type: "DELETE", payload: video.id })}
+              onClick={() => dispatch({ type: "DELETE", payload: video.id })}
               style={{
                 position: "absolute",
                 top: "2px",
