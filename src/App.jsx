@@ -6,6 +6,8 @@ import data from "./assets/data.json";
 import AddVideo from "./Components/AddVideo";
 
 function App() {
+  const [editableVideo, setEditableVideo] = useState(null);
+  
   function videoReducer(videos, action) {
     switch (action.type) {
       case "ADD":
@@ -24,6 +26,8 @@ function App() {
         const index = videos.findIndex((v) => v.id === action.payload.id);
         const uVideo = [...videos];
         uVideo.splice(index, 1, action.payload);
+        //Not use inside...
+        setEditableVideo(null);
         return uVideo;
 
       default:
@@ -33,29 +37,14 @@ function App() {
 
   const [videos, dispatch] = useReducer(videoReducer, data.projects);
 
-  const [editableVideo, setEditableVideo] = useState(null);
-  const addVideo = (video) => {
-    //Total  called action
-    dispatch({ type: "ADD", payload: video });
-  };
-  const deleteVideo = (id) => {
-    dispatch({ type: "DELETE", payload: id });
-  };
   const editVideo = (id) => {
     setEditableVideo(videos.find((video) => video.id === id));
-  };
-  const updateVideo = (video) => {
-    dispatch({ type: "UPDATE", payload: video });
   };
 
   return (
     <>
-      <AddVideo
-        addVideo={addVideo}
-        editableVideo={editableVideo}
-        updateVideo={updateVideo}
-      />
-      <Video deleteVideo={deleteVideo} videos={videos} editVideo={editVideo} />
+      <AddVideo dispatch={dispatch} editableVideo={editableVideo} />
+      <Video dispatch={dispatch} videos={videos} editVideo={editVideo} />
     </>
   );
 }

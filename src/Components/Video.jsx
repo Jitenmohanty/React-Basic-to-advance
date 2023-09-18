@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Video = ({ videos, deleteVideo,editVideo }) => {
+const Video = ({ videos, dispatch, editVideo }) => {
   return (
     <>
       <div
@@ -18,13 +18,13 @@ const Video = ({ videos, deleteVideo,editVideo }) => {
             style={{ position: "relative", marginLeft: "5px", width: "25vw" }}
           >
             <button
-              onClick={() => deleteVideo(video.id)}
+              onClick={() =>dispatch({ type: "DELETE", payload: video.id })}
               style={{
                 position: "absolute",
                 top: "2px",
                 right: "3px",
                 backgroundColor: "tomato",
-                padding:'0.5rem'
+                padding: "0.5rem",
               }}
             >
               X
@@ -36,7 +36,7 @@ const Video = ({ videos, deleteVideo,editVideo }) => {
                 top: "2px",
                 right: "2rem",
                 backgroundColor: "tomato",
-                padding:'0.5rem'
+                padding: "0.5rem",
               }}
             >
               edit

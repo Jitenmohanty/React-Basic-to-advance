@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
-  const initialState = {
-    title: "",
-    description: "",
-  }
-const AddVideo = ({ addVideo, editableVideo, updateVideo }) => {
+const initialState = {
+  title: "",
+  description: "",
+};
+const AddVideo = ({ dispatch, editableVideo }) => {
   const [video, setVideo] = useState(initialState);
   const handleChange = (e) => {
     setVideo({
       ...video,
       [e.target.name]: e.target.value,
     });
-
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (editableVideo) {
-      updateVideo(video);
-      setVideo(initialState )
+      dispatch({ type: "UPDATE", payload: video });
+      setVideo(initialState);
     } else {
-      addVideo(video);
-      setVideo(initialState)
+      dispatch({ type: "ADD", payload: video });
+      setVideo(initialState);
     }
   };
   useEffect(() => {
